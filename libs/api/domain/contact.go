@@ -1,6 +1,6 @@
 package domain
 
-import contract "github.com/gatherloop/starter-monorepo"
+import contract "github.com/gatherloop/exercise-monorepo"
 
 type (
 	CreateContactRequest = contract.CreateContactRequest

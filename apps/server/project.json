@@ -28,7 +28,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "apps/server",
-        "command": "docker build --platform linux/amd64 -t gatherloop/starter-monorepo-server ."
+        "command": "docker build --platform linux/amd64 -t gatherloop/exercise-monorepo-server ."
       },
       "dependsOn": [
         {
@@ -41,7 +41,7 @@
       "executor": "nx:run-commands",
       "options": {
         "cwd": "apps/server",
-        "command": "docker push gatherloop/starter-monorepo-server"
+        "command": "docker push gatherloop/exercise-monorepo-server"
       },
       "dependsOn": [
         {

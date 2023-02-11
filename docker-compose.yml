@@ -1,8 +1,8 @@
 services:
-  starter-monorepo-database:
+  exercise-monorepo-database:
     platform: linux/amd64
     image: mysql
-    container_name: starter-monorepo-database
+    container_name: exercise-monorepo-database
     ports:
       - 3306:3306
     environment:
@@ -13,16 +13,16 @@ services:
       timeout: 20s
       retries: 10
     networks:
-      - starter-monorepo-networks
+      - exercise-monorepo-networks
     volumes:
-      - starter-monorepo-volumes:/var/lib/mysql
+      - exercise-monorepo-volumes:/var/lib/mysql
       - ./contact_app_contacts.sql:/docker-entrypoint-initdb.d/contact-apps.sql
-  starter-monorepo-server:
+  exercise-monorepo-server:
     platform: linux/amd64
-    image: gatherloop/starter-monorepo-server
-    container_name: starter-monorepo-server
+    image: gatherloop/exercise-monorepo-server
+    container_name: exercise-monorepo-server
     environment:
-      - HOST=starter-monorepo-database
+      - HOST=exercise-monorepo-database
       - PORT=3306
       - USERNAME=root
       - PASSWORD=root
@@ -31,24 +31,24 @@ services:
     ports:
       - 5101:3000
     depends_on:
-      starter-monorepo-database:
+      exercise-monorepo-database:
         condition: service_healthy
     networks:
-      - starter-monorepo-networks
-  starter-monorepo-user-facing:
+      - exercise-monorepo-networks
+  exercise-monorepo-user-facing:
     platform: linux/amd64
-    image: gatherloop/starter-monorepo-user-facing
-    container_name: starter-monorepo-user-facing
+    image: gatherloop/exercise-monorepo-user-facing
+    container_name: exercise-monorepo-user-facing
     environment:
       - API_URL=https://gw-starter.gatherloop.co
     ports:
       - 5100:3000
     networks:
-      - starter-monorepo-networks
+      - exercise-monorepo-networks
 
 networks:
-  starter-monorepo-networks:
-    name: starter-monorepo-networks
+  exercise-monorepo-networks:
+    name: exercise-monorepo-networks
 volumes:
-  starter-monorepo-volumes:
-    name: starter-monorepo-volumes
+  exercise-monorepo-volumes:
+    name: exercise-monorepo-volumes

@@ -1,11 +1,11 @@
-module course-explorer-monorepo
+module exercise-monorepo
 
 go 1.17
 
-replace github.com/gatherloop/starter-monorepo => ./libs/api/__generated__/contract
+replace github.com/gatherloop/exercise-monorepo => ./libs/api/__generated__/contract
 
 require (
-	github.com/gatherloop/starter-monorepo v0.0.0-00010101000000-000000000000
+	github.com/gatherloop/exercise-monorepo v0.0.0-00010101000000-000000000000
 	github.com/gorilla/mux v1.8.0
 	github.com/joho/godotenv v1.4.0
 	gorm.io/driver/mysql v1.4.5
