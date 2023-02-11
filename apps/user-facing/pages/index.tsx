@@ -1,15 +1,5 @@
-import {
-  ContactListScreen,
-  ContactListScreenProps,
-  getContactListScreenProps,
-} from '@course-explorer-monorepo/ui';
-import { GetServerSideProps } from 'next';
+import { Text } from 'tamagui';
 
-export const getServerSideProps: GetServerSideProps<
-  ContactListScreenProps
-> = async () => {
-  const props = await getContactListScreenProps();
-  return { props };
-};
-
-export default ContactListScreen;
+export default function Home() {
+  return <Text>Hello World</Text>;
+}
